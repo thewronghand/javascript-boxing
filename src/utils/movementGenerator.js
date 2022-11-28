@@ -1,7 +1,7 @@
 const MissionUtils = require('@woowacourse/mission-utils');
 const { NUMBER } = require('./constants');
 
-const movementGenerator = () => {
+const canMove = () => {
   const random = MissionUtils.Random.pickNumberInRange(
     NUMBER.minRandom,
     NUMBER.maxRandom
@@ -12,4 +12,4 @@ const movementGenerator = () => {
   return false;
 };
 
-module.exports = { movementGenerator };
+module.exports = { canMove };
