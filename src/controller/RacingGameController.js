@@ -19,7 +19,8 @@ class RacingGameController {
 
   #readCarNames() {
     this.#inputView.readUserInputNames((input) => {
-      this.#handleCarNamesException(input);
+      const names = input.split(SIGN.comma);
+      this.#handleCarNamesException(names);
     });
   }
 
@@ -31,9 +32,8 @@ class RacingGameController {
 
   #handleCarNamesException(names) {
     try {
-      const namesArray = names.split(SIGN.comma);
-      this.#validateCarNames(namesArray);
-      const racingGame = new RacingGame(namesArray);
+      this.#validateCarNames(names);
+      const racingGame = new RacingGame(names);
       this.#readTrialCounts(racingGame);
     } catch (error) {
       this.#outputView.printError(ERROR.userInputNameInvalid);
