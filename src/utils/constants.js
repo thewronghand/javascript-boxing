@@ -15,9 +15,9 @@ const NUMBER = {
 };
 
 const MESSAGE = {
-  readCarNames: `자동차 이름을 ${NUMBER.validNameLength}자 이하로 콤마로 구분하여 입력해주세요.\n올바른 예) east,west,south,north`,
-  readTrialCount: '시도할 횟수를 입력해주세요.',
-  result: '실행 결과',
+  readCarNames: `자동차 이름을 ${NUMBER.validNameLength}자 이하로 콤마로 구분하여 입력해주세요.\n올바른 예) east,west,south,north\n`,
+  readTrialCount: '시도할 횟수를 입력해주세요.\n',
+  result: '실행 결과\n',
   winnerAnnouncement: '최종 우승자: '
 };
 
