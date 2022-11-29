@@ -3,7 +3,7 @@ const { canMove } = require('../utils/movementGenerator');
 
 class RacingCar {
   #name;
-  #moveResult;
+  #moveResult = [];
 
   constructor(name) {
     this.#name = name;
@@ -11,7 +11,7 @@ class RacingCar {
   }
 
   getName() {
-    return this.#name.concat(SIGN.indicator);
+    return this.#name;
   }
 
   getMoveResult() {
@@ -20,9 +20,9 @@ class RacingCar {
 
   move() {
     if (canMove()) {
-      this.#moveResult.concat(SIGN.movement);
+      this.#moveResult.push(SIGN.movement);
     }
   }
 }
 
-module.exports = App;
+module.exports = RacingCar;
