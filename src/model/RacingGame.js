@@ -9,6 +9,7 @@ class RacingGame {
     for (const name of names) {
       this.#cars.push(new RacingCar(name));
     }
+    this.#winners = [];
   }
 
   move() {
@@ -32,24 +33,30 @@ class RacingGame {
   }
 
   calculateWinners() {
-    const winners = [];
     const carNames = this.getCarNames();
     const carMoveResults = this.getCarMoveResults();
-    const carMoveResultLengths = carMoveResults.map((element) => {
-      return element.length;
-    });
+    const carMoveResultLengths = getArrayLengths(carMoveResults);
     const winningScore = Math.max(...carMoveResultLengths);
-    carNames.forEach((element, idx) => {
-      if (carMoveResultLengths[idx] === winningScore) {
-        winners.push(element);
+    this.#setWinners(carNames, carMoveResultLengths, winningScore);
+  }
+
+  #setWinners(names, moveLengths, winningScore) {
+    names.forEach((element, idx) => {
+      if (moveLengths[idx] === winningScore) {
+        this.#winners.push(element);
       }
     });
-    this.#winners = winners;
   }
 
   getWinners() {
     return this.#winners;
   }
 }
+
+const getArrayLengths = (array) => {
+  return array.map((element) => {
+    return element.length;
+  });
+};
 
 module.exports = RacingGame;
