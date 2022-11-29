@@ -11,7 +11,7 @@ const validate = {
     if (isNaN(number) || number === undefined) {
       throw new Error();
     }
-    if (number !== parseInt(number)) {
+    if (parseFloat(number) !== parseInt(number)) {
       throw new Error();
     }
     if (number < NUMBER.minTrialCount || number > NUMBER.maxTrialCount) {
