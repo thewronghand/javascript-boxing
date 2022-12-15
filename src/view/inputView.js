@@ -1,15 +1,22 @@
 const { Console } = require('@woowacourse/mission-utils');
-const { MESSAGE } = require('../utils/constants');
+const { GAME_MESSAGE } = require('../utils/constants/message');
 
 const inputView = {
-  readUserInputNames(callBack) {
-    Console.readLine(MESSAGE.readCarNames, (input) => {
-      callBack(input);
+  readPunch(callback) {
+    Console.readLine(GAME_MESSAGE.readUserInputPunch, (input) => {
+      callback(input);
     });
   },
-  readUserInputTrialCounts(callBack) {
-    Console.readLine(MESSAGE.readTrialCount, (input) => {
-      callBack(input);
+
+  readBlock(callback) {
+    Console.readLine(GAME_MESSAGE.readUserInputBlock, (input) => {
+      callback(input);
+    });
+  },
+
+  readCommand(callback) {
+    Console.readLine(GAME_MESSAGE.readUserInputCommand, (input) => {
+      callback(input);
     });
   }
 };

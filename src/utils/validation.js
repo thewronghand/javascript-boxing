@@ -1,20 +1,14 @@
-const { NUMBER } = require('./constants');
+const { KEY } = require('./constants/value');
 
 const validate = {
-  userInputName(name) {
-    if (name.length > NUMBER.validNameLength) {
+  userInputPunchBlock(input) {
+    if (input !== KEY.left && input !== KEY.right) {
       throw new Error();
     }
   },
 
-  userInputNumber(number) {
-    if (isNaN(number) || number === undefined) {
-      throw new Error();
-    }
-    if (parseFloat(number) !== parseInt(number)) {
-      throw new Error();
-    }
-    if (number < NUMBER.minTrialCount || number > NUMBER.maxTrialCount) {
+  userInputCommand(input) {
+    if (input !== KEY.retry && input !== KEY.quit) {
       throw new Error();
     }
   }
